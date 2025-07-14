@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Function Introduction Assignment</title>
+
+<style>
+body {
+  background-color: #d9eff6;
+}
+
+.highlightTitle {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 14px;
+  text-decoration: underline;
+  color: #096;
+}
+</style>
+
+<script>
+var name = "Talan Shah";
+
+function sayHello() {
+  alert(name);
+}
+
+function printHello() {
+  document.write(name + "<br>");
+}
+
+function printHelloH1() {
+  document.write("<h1>" + name + "</h1>");
+}
+
+function characterCount() {
+  var testString = prompt("Enter a string:");
+  alert("Character count: " + testString.length);
+}
+
+sayHello();
+printHello();
+printHello();
+printHelloH1();
+</script>
+
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Unit-3 - Functions</h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your server. Make a link in your WDV221 homework page for this assignment.</p>
+<p>Submit this assignment on Blackboard. Please include a link to your homework page.</p>
+<hr />
+
+<ol>
+  <li> Create a global variable and assign it with a string of your name</li>
+  <li> Create a function called sayHello( ). The function will use the alert( ) function to display your name. Call it during runtime.</li>
+  <li>Create a function called printHello( ). The function will use the document.write( ) function to display your name. Call it twice in a row during runtime.</li>
+  <li> Call the printHello( ) function so that it prints your name inside of an h1 element. </li>
+  <li> 
+    <p>Create a function called characterCount( ).</p>
+    <button onclick="characterCount()">Click to count characters</button>
+  </li>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript</title>
+
+<style>
+div#container {
+	width:960px;
+	margin:auto;
+	padding:10px;
+	background-color:white;	
+	border:thin solid black;
+}
+</style>
+
+<script>		
+	//1. Modify this run time script to output an h1 element that says 'Assignment 1'
+
+	var newHeading = document.createElement("h1");
+	newHeading.textContent = "Assignment 1";
+	document.addEventListener("DOMContentLoaded", function() {
+		document.getElementById("container").prepend(newHeading);
+	});
+
+</script>
+
+</head>
+<body>
+<div id="container">
+
+    <h1>WDV221 Intro Javascript</h1>
+    <h2>Introduction to Javascript - Assignment 1</h2>
+
+    <p>Tasks:</p>
+    <p>1. The instructions are in the code.</p>
+    <p>2. Create a run time script that will display your name and major on the page AND on the console log.</p>  
+	<p>3. Fix the run time script on the bottom of this page.</p>
+    
+    <script>
+        //2. Create a run time script that will display your name and major on the page AND on the console log.
+        var nameMajor = document.createElement("p");
+        nameMajor.textContent = "Name: Talan Shah, Major: Computer Information Systems";
+        document.getElementById("container").appendChild(nameMajor);
+        console.log("Name: Talan Shah, Major: Computer Information Systems");
+
+        //3. Fix the run time script on the bottom of this page.
+        alert('You are on your way to working with Javascript');
+    </script>
+
+</div>
+</body>
+</html>

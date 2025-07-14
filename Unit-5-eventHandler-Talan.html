@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>League of Legends - By Talan</title>
+<style>
+  body {
+    background-color: #000000;
+    color: #096;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  h1 {
+    font-style: italic;
+    font-size: 28px;
+    text-decoration: underline;
+    margin-bottom: 0.3em;
+  }
+  p {
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 0;
+  }
+  #champion-img {
+    width: 250px;
+    border: 4px solid transparent;
+    border-radius: 15px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    margin-top: 1em;
+  }
+  #champion-img.highlight {
+    border-color: #096;
+    transform: scale(1.1);
+  }
+  select {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    margin-top: 20px;
+  }
+  button {
+    background-color: #096;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 25px;
+    color: #eeddda;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #064;
+  }
+</style>
+</head>
+<body onload="pageLoaded()">
+
+  <h1>Welcome to League of Legends</h1>
+  <p>Pick your favorite role or check out my favorite champion, Viego!</p>
+
+  <img
+    id="champion-img"
+    src="images/viego.jpg"
+    alt="Viego Champ Splash"
+    onclick="championClicked()"
+    onmouseover="highlightChampion()"
+    onmouseout="removeHighlight()"
+  />
+
+  <br />
+
+  <label for="role-select">Choose your role:</label><br />
+  <select id="role-select" onchange="roleChanged()">
+    <option value="">--Select Role--</option>
+    <option value="Top">Top</option>
+    <option value="Jungle">Jungle</option>
+    <option value="Mid">Mid</option>
+    <option value="ADC">ADC</option>
+    <option value="Support">Support</option>
+  </select>
+
+  <br />
+
+  <button id="surprise-btn">Click for a Surprise</button>
+
+  <script>
+    function pageLoaded() {
+      alert("Welcome to the League of Legends Viego Page!");
+    }
+
+    function championClicked() {
+      alert("Viego, the Ruined King's splash art!");
+    }
+
+    function highlightChampion() {
+      document.getElementById("champion-img").classList.add("highlight");
+      console.log("Champion highlighted.");
+    }
+
+    function removeHighlight() {
+      document.getElementById("champion-img").classList.remove("highlight");
+      console.log("Champion highlight removed.");
+    }
+
+    function roleChanged() {
+      const select = document.getElementById("role-select");
+      const selectedRole = select.value;
+      if (selectedRole) {
+        console.log("Role changed to: " + selectedRole);
+        alert("You selected: " + selectedRole);
+      }
+    }
+
+    document.getElementById("surprise-btn").addEventListener("click", function() {
+      console.log("Surprise button clicked!");
+      alert("Don't int your games!");
+    });
+  </script>
+</body>
+</html>
