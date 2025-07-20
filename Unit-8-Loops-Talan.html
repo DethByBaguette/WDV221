@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Loops</title>
+<script>
+// Exercise 1: WHILE loop that prints numbers 0 to 4
+function whileLoop() {
+  var output = "";
+  var i = 0;
+  while (i <= 4) {
+    output += i + "<br>";
+    i++;
+  }
+  document.getElementById("whileOutput").innerHTML = output;
+}
+
+// Exercise 2: FOR loop that prints numbers 4 to 0
+function forLoop() {
+  var output = "";
+  for (var i = 4; i >= 0; i--) {
+    output += i + "<br>";
+  }
+  document.getElementById("forOutput").innerHTML = output;
+}
+
+// Exercise 3: Loop to print 1 to 5 in its own paragraph
+function paragraphLoop() {
+  var output = "";
+  for (var i = 1; i <= 5; i++) {
+    output += "<p>" + i + "</p>";
+  }
+  document.getElementById("paragraphOutput").innerHTML = output;
+}
+
+// Exercise 4: Loop to print 5, 10, 15, 20, etc until greater than 40
+function incrementLoop() {
+  var output = "";
+  for (var i = 5; i <= 40; i += 5) {
+    output += i + "<br>";
+  }
+  document.getElementById("incrementOutput").innerHTML = output;
+}
+
+// Exercise 5: Loop to create 6 options (Option 1 through Option 6)
+function createOptions() {
+  var selectMenu = document.getElementById("select");
+  for (var i = 1; i <= 6; i++) {
+    var option = document.createElement("option");
+    option.text = "Option " + i;
+    selectMenu.appendChild(option);
+  }
+}
+
+window.onload = function() {
+  whileLoop();
+  forLoop();
+  paragraphLoop();
+  incrementLoop();
+  createOptions();
+}
+</script>
+</head>
+
+<body>
+<h1>WDV221 Intro Javascript</h1>
+<h2>Unit-8 Loops Assignment</h2>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<hr />
+<h3>Instructions: </h3>
+<p>Please complete the following exercises using JavaScript loops as indicated.  Please place your code on this page. Use runtime scripts unless told otherwise. </p>
+<p>1. Create a WHILE loop that will print out the  numbers 0 to 4 each on a seperate line.</p>
+<div id="whileOutput"></div>
+
+<p>2. Create a FOR loop that will print out the  numbers 4 to 0 each on a seperate line.</p>
+<div id="forOutput"></div>
+
+<p>3. Create a loop that will print 1 to 5 each in its own paragraph element.</p>
+<div id="paragraphOutput"></div>
+
+<p>4. Create a loop that will print out the following numbers (5,10,15,20,25...) until one is greater than 40.</p>
+<div id="incrementOutput"></div>
+
+<p>5. Create a loop that will print out 6 of the following messages (Option 1, Option 2, Option 3, etc.) as options within the drop down menu below.</p>
+<p>
+  <label>Select an Option! 
+    <select name="select" id="select">
+    </select>
+  </label>
+</p>
+<p>&nbsp;</p>
+</body>
+</html>
