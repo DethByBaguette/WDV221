@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript</title>
+<style>
+  .highlight {
+    font-weight: bold;
+    color: green;
+  }
+</style>
+
+<script>
+	var teamNames = ["Bears","Browns","Reds"];
+	var teamScores = [3,7,4];
+
+	function lookupNames(inNames) {
+		for(var j=0; j<teamNames.length; j++) {
+			if( inNames == teamNames[j]) {
+				return j;
+			}
+		}
+		return -1;
+	}
+
+	function getScore() {
+		var inScore = parseInt( document.getElementById("inputScore").value );
+		return inScore;
+	}
+
+	function displayAllTeams() {
+		var displayArea = document.getElementById("teamDisplay");
+		displayArea.innerHTML = "";
+
+		var teamList = [];
+		for (var i = 0; i < teamNames.length; i++) {
+			teamList.push({name: teamNames[i], score: teamScores[i]});
+		}
+
+		teamList.sort(function(a, b) {
+			return b.score - a.score;
+		});
+
+		var maxScore = teamList[0].score;
+
+		for (var i = 0; i < teamList.length; i++) {
+			if (teamList[i].score === maxScore) {
+				displayArea.innerHTML += "<div class='highlight'>" + teamList[i].name + ": " + teamList[i].score + "</div>";
+			} else {
+				displayArea.innerHTML += "<div>" + teamList[i].name + ": " + teamList[i].score + "</div>";
+			}
+		}
+	}
+
+	function processTeamNames() {
+		document.getElementById("outputResponse").innerHTML = "";
+
+		var inTeamName = document.getElementById("inputName").value;
+		var inTeamScore = getScore();
+
+		if (isNaN(inTeamScore)) {
+			document.getElementById("outputResponse").innerHTML = "Please enter a valid score.";
+			return;
+		}
+
+		var lookupIndex = lookupNames(inTeamName);
+
+		if (lookupIndex === -1) {
+			teamNames.push(inTeamName);
+			teamScores.push(inTeamScore);
+			document.getElementById("outputResponse").innerHTML = "New team added: " + inTeamName + " with score " + inTeamScore;
+		} else {
+			teamScores[lookupIndex] += inTeamScore;
+			document.getElementById("outputResponse").innerHTML = inTeamName + " now has score " + teamScores[lookupIndex];
+		}
+
+		displayAllTeams();
+	}
+
+	function resetForm() {
+		document.getElementById("form1").reset();
+		document.getElementById("outputResponse").innerHTML = "";
+	}
+</script>
+
+</head>
+
+<body>
+<h1>WDV221 Intro Javascript</h1>
+<h3>Skills Test</h3>
+
+<form id="form1" name="form1" method="post">
+	<p>
+		<label for="inputName">Team Name:</label>
+		<input type="text" name="inputName" id="inputName">
+	</p>
+	<p>
+		<label for="inputScore">Enter Score:</label>
+		<input type="text" name="inputScore" id="inputScore">
+	</p>
+	<p>
+		<input type="button" name="button" id="button" value="Submit" onClick="processTeamNames()">
+		<input type="reset" name="button2" id="button2" value="Reset" onClick="resetForm()">
+	</p>
+</form>
+
+<p id="outputResponse"></p>
+<p id="teamDisplay"></p>
+
+</body>
+</html>
